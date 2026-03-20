@@ -5,8 +5,8 @@ class Category(models.Model):
     title = models.CharField(mas_length=255)
 
     class Meta:
-        ordering = ('Title')
-        verbose_name_prural = 'Categories'
+        ordering = ('title',)
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.title
@@ -26,7 +26,7 @@ class Post(models.Model):
     intro = models.TextField()
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=10, choice=CHOICE_STATUS, default=ACTIVE)
+    status = models.CharField(max_length=10, choices=CHOICE_STATUS, default=ACTIVE)
     image = models.ImageField(upload_to='upload/', blank=True, null=True)
 
     def __str__(self):
