@@ -15,11 +15,11 @@ class PostAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['title']
-    list_display =  ('title')
+    list_display =  ('title',)
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'post', 'created_at')
 
-admin.site.register(Category)
-admin.site.register(Post)
-admin.site.register(Comment)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment, CommentAdmin)
